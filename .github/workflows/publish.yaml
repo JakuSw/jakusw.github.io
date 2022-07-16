@@ -2,8 +2,8 @@ name: Deploy article
 
 on:
   push:
-    # paths:
-    # - '**.md'
+    paths:
+    - '**.md'
     branches:
     - master
 
