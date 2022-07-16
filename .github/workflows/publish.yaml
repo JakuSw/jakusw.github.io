@@ -2,8 +2,8 @@ name: Deploy article
 
 on:
   push:
-    paths:
-    - '**.md'
+    # paths:
+    # - '**.md'
     branches:
     - master
 
@@ -13,8 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v2 
-        with:
-          node-version: '16'
+      with:
+        node-version: '16'
     - name: Build app
       run: |
         cd src/
