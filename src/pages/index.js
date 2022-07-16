@@ -14,7 +14,7 @@ export default function Home({ allPostsData }) {
       <section className={utilStyles.headingMd}>
         <p>Hi! I'm Jakub, DevOps with expirience in .NET.</p>
         <p>
-          This is my blog with some insights about IT. I would like to use this blog as place where, I can improve my english skills.
+          This is my blog with some insights about IT. I would like to use this blog as place, where I can improve my english skills.
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
