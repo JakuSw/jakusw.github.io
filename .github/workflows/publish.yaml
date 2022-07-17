@@ -28,7 +28,7 @@ jobs:
         rm -r .devcontainer
         rm -r .github
         rm  README.md
-        mv  -v docs/ .
+        mv  -v ./docs .
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Automated publish
