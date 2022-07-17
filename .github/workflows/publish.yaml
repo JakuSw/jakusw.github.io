@@ -12,11 +12,11 @@ jobs:
     # - name: Clear old blog
     #   run: |
     #     rm -r docs
-    - name: Commit cleaning
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Automated publish
-        branch: blog
+    # - name: Commit cleaning
+    #   uses: stefanzweifel/git-auto-commit-action@v4
+    #   with:
+    #     commit_message: Automated publish
+    #     branch: blog
     - name: Merge main -> blog
       uses: devmasx/merge-branch@master
       with:
