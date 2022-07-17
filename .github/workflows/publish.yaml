@@ -7,11 +7,11 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
     - uses: actions/checkout@v3
-    - name: Merge development -> staging
+    - name: Merge main -> blog
       uses: devmasx/merge-branch@master
       with:
         type: now
-        from_branch: master
+        from_branch: main
         target_branch: blog
         github_token: ${{ github.token }}
     - uses: actions/setup-node@v2 
