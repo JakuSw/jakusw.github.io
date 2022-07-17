@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build-export": "next build && next export -o ../docs",
+    "build-export": "next build && next export -o ..",
     "start": "next start"
   },
   "dependencies": {
