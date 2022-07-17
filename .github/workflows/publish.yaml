@@ -11,7 +11,7 @@ jobs:
         ref: blog
     - name: Clear old blog
       run: |
-        rm -v !(".git")
+        rm -r .devcontainer docs src .
     - name: Merge main -> blog
       uses: devmasx/merge-branch@master
       with:
