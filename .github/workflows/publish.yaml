@@ -7,6 +7,10 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
     - uses: actions/checkout@v3
+        ref: blog
+    - name: Clear old blog
+      run: |
+        rm -v !(".git")
     - name: Merge main -> blog
       uses: devmasx/merge-branch@master
       with:
