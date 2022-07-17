@@ -9,9 +9,9 @@ jobs:
     - uses: actions/checkout@v3
       with:
         ref: blog
-    # - name: Clear old blog
-    #   run: |
-    #     rm -r docs
+    - name: Clear old blog
+      run: |
+        rm -r .github/workflows
     # - name: Commit cleaning
     #   uses: stefanzweifel/git-auto-commit-action@v4
     #   with:
