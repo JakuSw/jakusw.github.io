@@ -6,17 +6,6 @@ jobs:
   build:
     runs-on: [ubuntu-latest]
     steps:
-    - uses: actions/checkout@v3
-      with:
-        ref: blog
-    - name: Clear old blog
-      run: |
-        rm -r .github/workflows
-    # - name: Commit cleaning
-    #   uses: stefanzweifel/git-auto-commit-action@v4
-    #   with:
-    #     commit_message: Automated publish
-    #     branch: blog
     - name: Merge main -> blog
       uses: devmasx/merge-branch@master
       with:
@@ -24,6 +13,9 @@ jobs:
         from_branch: main
         target_branch: blog
         github_token: ${{ github.token }}
+    - uses: actions/checkout@v3
+      with:
+        ref: blog
     - uses: actions/setup-node@v2 
       with:
         node-version: '16'
