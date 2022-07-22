@@ -18,9 +18,6 @@ jobs:
         cd src/
         npm install
         npm run build-export
-        touch docs/.nojeckyll
-        touch docs/CNAME
-        echo 'www.swastek.pl' >> docs/CNAME
     - name: Add config files
       run: |
         touch docs/.nojeckyll
