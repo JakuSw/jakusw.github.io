@@ -20,7 +20,7 @@ jobs:
         npm run build-export
     - name: Add config files
       run: |
-        touch docs/.nojeckyll
+        touch docs/.nojekyll
         touch docs/CNAME
         echo 'www.swastek.pl' >> docs/CNAME
     - uses: stefanzweifel/git-auto-commit-action@v4
