@@ -1,6 +1,9 @@
 name: Deploy article
 
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - main
 
 jobs:
   build:
@@ -18,4 +21,3 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Automated publish
-        branch: main
