@@ -1,38 +1,36 @@
-# name: Deploy article
+name: Deploy article
 
-# on: [push]
+on: [push]
 
-# jobs:
-#   build:
-#     runs-on: [ubuntu-latest]
-#     steps:
-#     - name: Merge main -> blog
-#       uses: devmasx/merge-branch@master
-#       with:
-#         type: now
-#         from_branch: main
-#         target_branch: blog
-#         github_token: ${{ github.token }}
-#     - uses: actions/checkout@v3
-#       with:
-#         ref: blog
-#     - uses: actions/setup-node@v2 
-#       with:
-#         node-version: '16'
-#     - name: Build app
-#       run: |
-#         cd src/
-#         npm install
-#         npm run build-export
-#     - name: Remove source code
-#       run: |
-#         rm -r src
-#         rm -r .devcontainer
-#         rm -r .github
-#         rm  README.md
-#         cp -r out/* .
-#         rm -r out
-#     - uses: stefanzweifel/git-auto-commit-action@v4
-#       with:
-#         commit_message: Automated publish
-#         branch: blog
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: blog
+    - name: Clear branch
+      run: |
+        git restore --source main .
+    - uses: actions/setup-node@v2 
+      with:
+        node-version: '16'
+    - name: Build app
+      run: |
+        cd src/
+        npm install
+        npm run build-export
+    - name: Copy build
+      run: |
+        cp -r out/* .
+    - name: Remove source code
+      run: |
+        rm -r src
+        rm -r .devcontainer
+        rm -r .github
+        rm  README.md
+        rm -r out
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Automated publish
+        branch: blog
