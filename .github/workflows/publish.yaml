@@ -7,11 +7,6 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
     - uses: actions/checkout@v3
-      with:
-        ref: blog
-    - name: Clear branch
-      run: |
-        git restore --source origin/main .
     - uses: actions/setup-node@v2 
       with:
         node-version: '16'
@@ -20,17 +15,7 @@ jobs:
         cd src/
         npm install
         npm run build-export
-    - name: Copy build
-      run: |
-        cp -r out/* .
-    - name: Remove source code
-      run: |
-        rm -r src
-        rm -r .devcontainer
-        rm -r .github
-        rm  README.md
-        rm -r out
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Automated publish
-        branch: blog
+        branch: main
