@@ -11,7 +11,7 @@ jobs:
         ref: blog
     - name: Clear branch
       run: |
-        git restore --source main .
+        git restore --source origin/main .
     - uses: actions/setup-node@v2 
       with:
         node-version: '16'
