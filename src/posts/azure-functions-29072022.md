@@ -43,8 +43,14 @@ namespace Demo
     {
         [FunctionName("FileSave")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "{name}")] HttpRequest req,
-            [Blob("files/{name}", FileAccess.Write ,Connection = "AzureWebJobsStorage")] BlobClient output,
+            [HttpTrigger(
+                AuthorizationLevel.Anonymous, 
+                "post", 
+                Route = "{name}")] HttpRequest req,
+            [Blob(
+                "files/{name}", 
+                FileAccess.Write ,
+                Connection = "AzureWebJobsStorage")] BlobClient output,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -66,9 +72,15 @@ namespace Demo
     public static class BlobTrigger
     {
         [FunctionName("BlobTrigger")]
-        public static void Run([BlobTrigger("files/{name}", Connection = "AzureWebJobsStorage")]Stream myBlob, string name, ILogger log)
+        public static void Run([BlobTrigger(
+            "files/{name}", 
+            Connection = "AzureWebJobsStorage")]Stream myBlob, 
+            string name, 
+            ILogger log)
         {
-            log.LogInformation($"C# Blob trigger function processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+            log.LogInformation(
+                $"C# Blob trigger function processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes"
+                );
         }
     }
 }
@@ -83,12 +95,18 @@ This attribute is our function name and will be part of URL.
 
 Our key part is trigger in this case it's HTTP Post request, part of URL should be some name.
 ```
-[HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "{name}")] HttpRequest req
+[HttpTrigger(
+    AuthorizationLevel.Anonymous, 
+    "post", 
+    Route = "{name}")] HttpRequest req
 ```
 
 Output of function is blob storage, files will be saved into files container with same name from query. Connection is our connection string from Values section in local.settings.json, replace it with your connection string to local emulator or cloud resource.
 ```
-[Blob("files/{name}", FileAccess.Write ,Connection = "AzureWebJobsStorage")] BlobClient output
+[Blob(
+    "files/{name}", 
+    FileAccess.Write ,
+    Connection = "AzureWebJobsStorage")] BlobClient output
 ```
 
 Saving file to blob storage, second parameter is responsible for overriding existing files with same name.
@@ -103,7 +121,9 @@ return new OkObjectResult("Done");
 
 Blob trigger listening for events in our blob at files container.
 ```
-[BlobTrigger("files/{name}", Connection = "AzureWebJobsStorage")]Stream myBlob
+[BlobTrigger(
+    "files/{name}", 
+    Connection = "AzureWebJobsStorage")]Stream myBlob
 ```
 
 This parameter value will be same as {name} from trigger.
@@ -124,7 +144,9 @@ Functions:
 Let's try to post file!
 
 ```
-curl http://localhost:7071/api/file.json -d @testFile.json -H "Content-Type: application/javascript"
+curl http://localhost:7071/api/file.json 
+    -d @testFile.json 
+    -H "Content-Type: application/javascript"
 ```
 
 In your Storage Explorer you should see new file with name from query!
