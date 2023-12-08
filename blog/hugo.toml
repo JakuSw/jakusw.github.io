@@ -1,0 +1,44 @@
+baseURL = 'https://jakubswastek.pl/'
+languageCode = 'en-us'
+title = 'Tech blog'
+
+[params]
+title = "Jakub Swastek"
+author = "Jakub Swastek"
+description = "I'm Jakub and write some code"
+profilePicture = "images/photo.jpg"
+fullPostContent = false
+
+[[params.socialIcons]]
+icon = "fas fa-envelope"
+title = "e-mail"
+url = "mailto:jakub.swastek@wp.pl"
+
+[[params.socialIcons]]
+icon = "fab fa-linkedin"
+title = "Linkedin"
+url = "https://www.linkedin.com/in/jakub-swastek/"
+
+[[params.socialIcons]]
+icon = "fab fa-github"
+title = "Github"
+url = "https://github.com/JakuSw"
+
+[module]
+  [[module.imports]]
+    path = "github.com/lxndrblz/anatole"
+    disable = false
+
+    [menu]
+
+  [[menu.main]]
+  name = "Home"
+  identifier = "home"
+  weight = 100
+  url = "/"
+
+  [[menu.main]]
+  name = "Portfolio"
+  weight = 200
+  identifier = "portfolio"
+  url = "/portfolio/"

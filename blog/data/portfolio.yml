@@ -1,0 +1,17 @@
+portfolioitems:
+  - title: Coding Projects
+    portfolioitem:
+      - name: teams-scribe
+        link: https://github.com/jit-team/teams-scribe
+        description: 'Generate meetinng minutes based on transcription from Teams'
+        tags:
+          - GPT
+          - Azure openAI
+          - .NET
+        status: 'Finished'
+        start: '2023'
+        end: '2023'
+        authors:
+          - github.com/JakuSw
+          - github.com/McCrackenFX
+          - github.com/PablitoCBR
