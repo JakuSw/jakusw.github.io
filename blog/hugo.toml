@@ -6,7 +6,7 @@ title = 'Tech blog'
 title = "Jakub Swastek"
 author = "Jakub Swastek"
 description = "I'm Jakub and write some code"
-profilePicture = "images/photo.jpg"
+profilePicture = "images/profile.jpg"
 fullPostContent = false
 
 [[params.socialIcons]]
