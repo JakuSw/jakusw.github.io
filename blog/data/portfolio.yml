@@ -6,7 +6,7 @@ portfolioitems:
         description: 'Generate meetinng minutes based on transcription from Teams'
         tags:
           - GPT
-          - Azure openAI
+          - Azure OpenAI
           - .NET
         status: 'Finished'
         start: '2023'

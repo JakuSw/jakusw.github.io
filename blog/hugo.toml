@@ -36,3 +36,14 @@ url = "https://github.com/JakuSw"
   identifier = "home"
   weight = 100
   url = "/"
+
+  [[menu.main]]
+  name = "Portfolio"
+  identifier = "portfolio"
+  weight = 200
+  url = "/portfolio"
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
